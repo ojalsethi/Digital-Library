@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Remove the book ?</span>
+    <span class="example-spacer"></span>    
+  </mat-toolbar-row>
+</mat-toolbar>
+<div mat-dialog-actions style="margin-left: 3%; margin-right: 3%;">
+      <button mat-button class="btn btn-danger" (click)="confirmDelete()">Delete</button>      
+      <button mat-button class="btn btn-primary" (click)="onNoClick()">Cancel</button>
+</div>

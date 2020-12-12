@@ -1,0 +1,43 @@
+.grid-mobile-container {
+  margin-left: 20px;
+}
+
+.grid-web-container {
+  margin-left: 205px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+.example-card {
+  max-width: 250px;
+  max-height: 250px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-top: 0.75%;
+}
+
+.book-pagination-controls{
+  margin-left: 13.5%; 
+  margin-right: 13.5%
+}
+
+.card-pagination-controls{
+  margin-left: 32.5%; 
+  margin-right: 32.5%;
+}

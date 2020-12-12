@@ -1,0 +1,31 @@
+.sidenav-container {
+  height: 100%;  
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+  color:#97b3ce;
+  background-color:#1f2637;
+}
+
+.center-toolbar {    
+  display: flex;    
+  align-items: center;    
+  width: 100%;        
+} 
+
+.side-nav-items {
+  text-decoration:none;        
+  color:#97b3ce;
+  -webkit-transition:all .2s ease-in-out;
+  transition:all .2s ease-in-out
+}
+
+.side-nav-active-item{
+  background-color:#009bfc;
+  text-decoration:none;        
+  color:#97b3ce;
+  -webkit-transition:all .2s ease-in-out;
+  transition:all .2s ease-in-out
+}

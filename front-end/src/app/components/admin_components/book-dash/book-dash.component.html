@@ -1,0 +1,21 @@
+<admin-nav></admin-nav>
+<div [ngClass]="{'grid-mobile-container': isMobileDashboard(), 'grid-web-container': !isMobileDashboard()}">
+  <h1 class="mat-h1">Book Dashboard</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+            <button mat-mini-fab class="more-button" color="primary" (click)="addBook()" aria-label="Toggle menu">
+              <mat-icon>note_add</mat-icon>
+            </button>            
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <app-book-table></app-book-table>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

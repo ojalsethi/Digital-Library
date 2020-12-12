@@ -1,0 +1,15 @@
+<admin-nav></admin-nav>
+<div class="grid-container" [ngClass]="{'grid-mobile-container': isMobileDashboard(), 'grid-web-container': !isMobileDashboard()}">
+  <h1 class="mat-h1">User Dashboard</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>          
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <app-user-table></app-user-table>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

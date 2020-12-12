@@ -1,0 +1,68 @@
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Results">
+  </mat-form-field>
+        <mat-table [dataSource]="dataSource" matSort>
+            <!--_id-->
+            <ng-container matColumnDef="_id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>_id</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row._id}} </mat-cell>
+            </ng-container>
+
+            <!--title-->
+            <ng-container matColumnDef="title">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>title</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
+            </ng-container>
+
+            <!--author-->    
+            <ng-container matColumnDef="author">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>author</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="mycolor2"> {{row.author }} </mat-cell>
+            </ng-container>
+
+            <!--category-->
+            <ng-container matColumnDef="category">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>category</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="mycolor2"> {{row.category}} </mat-cell>
+            </ng-container>
+
+            <!--image-->
+            <ng-container matColumnDef="image">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>image</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="mycolor2">
+                    <a href="{{row.image}}" target="_blank">
+                        <mat-icon>image</mat-icon>
+                    </a>  
+                </mat-cell>
+            </ng-container>
+            
+            <!--available-->
+            <ng-container matColumnDef="available">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>availability</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.available }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>action</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <button mat-icon-button (click)="editBook(row._id, row.title, row.author, row.available, row.category)" aria-label="Toggle menu">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="deleteBook(row._id)" aria-label="Toggle menu">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                    <button mat-icon-button *ngIf="!row.available" (click)="makeBookAvailable(row._id)" aria-label="Toggle menu">
+                        <mat-icon>compare_arrows</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator #paginator
+                [length]="dataSource.filteredData.length"
+                [pageIndex]="0"
+                [pageSize]="5"
+                [pageSizeOptions]="[5, 9]">
+        </mat-paginator>

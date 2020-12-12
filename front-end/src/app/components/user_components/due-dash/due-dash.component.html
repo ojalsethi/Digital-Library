@@ -1,0 +1,31 @@
+<my-nav></my-nav>
+<div [ngClass]="{'grid-mobile-container': isMobileDashboard(), 'grid-web-container': !isMobileDashboard()}">
+  <h1 class="mat-h1">My Penalties</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}            
+          </mat-card-title>
+          <mat-card-subtitle>{{card.author}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <img style="height: 20%;width: 20%" src={{card.image}} alt="Photo of a this book">
+          <mat-grid-list cols="4" rowHeight="80px">
+            <mat-grid-tile              
+              colspan="2"
+              rowspan="1"              >
+              Hand this before {{card.targetDate}}
+            </mat-grid-tile>
+            <mat-grid-tile              
+              colspan="2"
+              rowspan="1">
+              current penalty : Rs.{{card.charge}}
+            </mat-grid-tile>
+          </mat-grid-list>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

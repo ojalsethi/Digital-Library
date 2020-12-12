@@ -1,0 +1,39 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .container{
+    margin-top: 10px
+  }
+
+  .green-btn{
+    background-color: #4CAF50
+  }
+
+  .example-button-row {
+     display: flex; 
+     align-items: center; 
+     justify-content: space-around; 
+  }
+
+  .save-btn{
+    padding-top: 10%;
+  }
+
+  .progress-spin-vals{
+    margin: 0 130px;
+  }
+
+  .warn-text{
+    margin-left: 12.5%
+  }

@@ -1,0 +1,16 @@
+.demo-toolbar {    
+    display: flex;    
+    align-items: center;    
+    width: 100%;        
+}  
+
+.mat-card {    
+    text-align: -webkit-center;    
+}
+
+mat-card {    
+    max-width: 80%;    
+    margin: 2em auto;    
+    text-align: center;
+    font-size: 30px;    
+  } 

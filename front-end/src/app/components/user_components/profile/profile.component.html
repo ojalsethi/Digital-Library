@@ -1,0 +1,24 @@
+<!-- Main Toolbar of an App -->    
+<mat-toolbar color="primary">    
+  <span>UCSC E-Library System</span>    
+  <span class="demo-toolbar"></span>    
+  <button mat-button routerLink="/">Home</button>    
+  
+</mat-toolbar>  
+
+<mat-card *ngIf="user">
+  <mat-card-title>
+    {{user.name}}
+  </mat-card-title>
+  
+  <mat-card-content>
+    <table>
+      <tr>
+        <p>Username : {{user.username}}</p>
+      </tr>
+      <tr>
+        <p>Email : {{user.email}}</p>
+      </tr>
+    </table>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,45 @@
+<!-- Main Toolbar of an App -->    
+<mat-toolbar color="primary">    
+  <span>UCSC E-Library System</span>      
+
+</mat-toolbar>
+
+<mat-card>
+    <!-- Title of an Card -->    
+    <mat-card-title>    
+      Admin Login
+    </mat-card-title>
+    
+    <mat-card-content>    
+      <form (submit)="loginAdmin()">    
+          <table>    
+              <tr>    
+                  <td colspan="2">    
+                      <mat-form-field class="demo-full-width">    
+                          <input matInput placeholder="Username" [(ngModel)]="username" name="username">    
+                      </mat-form-field>    
+                  </td>                      
+              </tr>    
+              <tr>    
+                <td colspan="2">    
+                  <mat-form-field class="demo-full-width">    
+                      <input matInput placeholder="Password" type="password" [(ngModel)]="password" name="password">    
+                  </mat-form-field>    
+              </td>        
+              </tr>    
+                
+              <tr>    
+                  <td colspan="2">    
+  
+                  </td>    
+              </tr>    
+              <tr>    
+                  <td colspan="2" class="content-center">    
+                      <button mat-raised-button color="primary" style="margin: 8%" type="submit">Submit</button>                          
+                  </td>    
+              </tr>    
+          </table>    
+      </form>          
+    </mat-card-content> 
+    
+</mat-card>

@@ -1,0 +1,50 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item (click)="switchToBrowseBooks()" 
+      [ngClass]="{'side-nav-active-item': (apptitle === 'Browse Books'),
+                  'side-nav-items': !(apptitle === 'Browse Books')}"><i class="fa fa-book" aria-hidden="true"></i>&nbsp; Browse Books</a>
+      <a mat-list-item (click)="switchToMyCollections()" 
+      [ngClass]="{'side-nav-active-item': (apptitle === 'My Collections'),
+                  'side-nav-items': !(apptitle === 'My Collections')}"><i class="fa fa-database" aria-hidden="true"></i>&nbsp; My Collection</a>
+      <a mat-list-item (click)="switchToBookMarks()" 
+      [ngClass]="{'side-nav-active-item': (apptitle === 'Flagged Books'),
+                  'side-nav-items': !(apptitle === 'Flagged Books')}"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp; Bookmarks</a>
+      <a mat-list-item (click)="switchToMyDues()" 
+      [ngClass]="{'side-nav-active-item': (apptitle === 'My Dues'),
+                  'side-nav-items': !(apptitle === 'My Dues')}"><i class="fa fa-dollar" aria-hidden="true"></i>&nbsp; My Dues</a>
+      <a mat-list-item (click)="switchToSuggestBook()" 
+      [ngClass]="{'side-nav-active-item': (apptitle === 'Suggest A Book'),
+                  'side-nav-items': !(apptitle === 'Suggest A Book')}"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>&nbsp; Suggest A Book</a>
+      <!-- <a mat-list-item (click)="switchToNewReleases()" 
+      [ngClass]="{'side-nav-active-item': (apptitle === 'New Releases'),
+                  'side-nav-items': !(apptitle === 'New Releases')}"><i class="fa fa-hourglass-2" aria-hidden="true"></i>&nbsp; New Releases</a> -->
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>{{ apptitle }}</span>
+      <span class="center-toolbar"></span>
+      <button *ngIf="authService.isLoggedIn()" mat-button routerLink="/">Dashboard</button>   
+      <button *ngIf="authService.isLoggedIn()" mat-button routerLink="/profile">Profile</button>         
+      <button *ngIf="!authService.isLoggedIn()" mat-button routerLink="/register">Register</button>  
+      <button *ngIf="!authService.isLoggedIn()" mat-button routerLink="/login">Login</button>  
+      <button *ngIf="authService.isLoggedIn()" mat-button (click)="onLogoutClick()">Logout</button>  
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+
+      <a mat-list-item (click)="switchToManageBooks()" 
+         [ngClass]="{'side-nav-active-item': (apptitle === 'Manage Books'),
+                     'side-nav-items': !(apptitle === 'Manage Books')}">
+      <mat-icon aria-hidden="true">book</mat-icon>Manage Books</a>      
+      <a mat-list-item (click)="switchToManageUsers()"
+         [ngClass]="{'side-nav-active-item': (apptitle === 'Manage Users'),
+                     'side-nav-items': !(apptitle === 'Manage Users')}">
+      <mat-icon aria-hidden="true">person</mat-icon> Manage Users</a>
+      <a mat-list-item (click)="swithToNotifications()"
+         [ngClass]="{'side-nav-active-item': (apptitle === 'Notifications'),
+                     'side-nav-items': !(apptitle === 'Notifications')}">
+      <mat-icon aria-hidden="true">notification_important</mat-icon>Notifications</a>
+      <a mat-list-item (click)="switchToManageFines()"
+         [ngClass]="{'side-nav-active-item': (apptitle === 'Manage Fines'),
+                     'side-nav-items': !(apptitle === 'Manage Fines')}">
+      <mat-icon aria-hidden="true">attach_money</mat-icon> Manage Fines</a>      
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>{{ apptitle }}</span>
+      <span class="center-toolbar"></span>
+      <button *ngIf="authService.isAdminLoggedIn()" mat-button routerLink="/admin-books">Dashboard</button>
+      <button *ngIf="authService.isAdminLoggedIn()" mat-button routerLink="/admin/profile">Profile</button>
+      <button *ngIf="authService.isAdminLoggedIn()" mat-button (click)="onLogoutClick()">Logout</button>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

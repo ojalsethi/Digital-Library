@@ -1,0 +1,29 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .container{
+    margin-top: 10px
+  }
+
+  .green-btn{
+    background-color: #4CAF50
+  }
+
+  .progress-spin-vals{
+    margin: 0 220px;
+  }
+
+  .warn-text{
+    margin-left: 12.5%
+  }

@@ -1,0 +1,34 @@
+<my-nav></my-nav>
+<div [ngClass]="{'grid-mobile-container': isMobileDashboard(), 'grid-web-container': !isMobileDashboard()}">
+  <h1 class="mat-h1">Suggest A Book</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile colspan=2>
+      <mat-card class="dashboard-card">
+        <form [formGroup]="_suggestForm" (submit)="onSubmit()">
+          <div class="example-container">            
+              <mat-form-field>
+                <input matInput placeholder="Title" formControlName="Title">
+              </mat-form-field>
+
+              <mat-form-field>
+                  <input matInput placeholder="Author" formControlName="Author">
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-select placeholder="Category" formControlName="Category">
+                  <mat-option value="Arts-and-Music">Arts & Music</mat-option>
+                  <mat-option value="Biographies">Biographies</mat-option>
+                  <mat-option value="Business">Business</mat-option>
+                  <mat-option value="Computers-and-Tech">Computers & Tech</mat-option>
+                  <mat-option value="Education">Educational</mat-option>
+                  <mat-option value="History">History</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <button class="btn btn-success" type="submit">suggest</button>
+          </div>
+        </form>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

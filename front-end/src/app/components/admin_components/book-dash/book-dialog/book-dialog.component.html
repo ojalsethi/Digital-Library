@@ -1,0 +1,66 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Add Book</span>
+    <span class="example-spacer"></span>
+    <button mat-mini-fab (click)="onNoClick()" color="primary" aria-label="Toggle menu">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-card-content>
+  <div class="container">
+    <form [formGroup]="_bookForm" (submit)="onSubmit()">
+      <mat-form-field class="example-form" appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" formControlName="Title" placeholder="Title">
+      </mat-form-field>
+      <mat-form-field class="example-form" appearance="outline">
+        <mat-label>Author</mat-label>
+        <input matInput type="text" formControlName="Author" placeholder="Author">
+      </mat-form-field>
+      <mat-form-field class="example-form" appearance="outline">
+        <mat-select placeholder="Availability" formControlName="Available">
+          <mat-option value="true">Yes</mat-option>
+          <mat-option value="false">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-form" appearance="outline">
+        <mat-select placeholder="Category" formControlName="Category">
+          <mat-option value="Arts-and-Music">Arts & Music</mat-option>
+          <mat-option value="Biographies">Biographies</mat-option>
+          <mat-option value="Business">Business</mat-option>
+          <mat-option value="Computers-and-Tech">Computers & Tech</mat-option>
+          <mat-option value="Education">Educational</mat-option>
+          <mat-option value="History">History</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      
+      <div class="button-row">
+        <mat-label>Attach Image </mat-label>
+        <button mat-button color="primary" mat-mini-fab type="button" (click)="imgFileInput.click()">
+          <mat-icon>attachment</mat-icon>
+        </button>        
+      </div>
+      
+      <input hidden type="file" #imgFileInput (change)="changeImage($event)" accept=".png,.jpg">
+              
+      <div class="save-btn">
+        <button *ngIf="imageAvailable()" class="btn btn-primary" type="submit">Save</button>
+        <button *ngIf="allSetToGo()" class="btn btn-success" style="margin-left: 10px" (click)="commit()">Commit</button>
+      </div>
+            
+      <mat-progress-spinner 
+        class="progress-spin-vals"
+        diameter="40"       
+        color="primary"
+        mode="determinate"
+        [value]="uploadPercent">        
+      </mat-progress-spinner>
+
+      <div class="warn-text" *ngIf="allSetToGo()">You must commit to save to database</div>
+    </form>
+  </div>
+
+  
+</mat-card-content>

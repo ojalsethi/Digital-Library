@@ -1,0 +1,19 @@
+<admin-nav></admin-nav>
+<div [ngClass]="{'grid-mobile-container': isMobileDashboard(), 'grid-web-container': !isMobileDashboard()}">
+  <h1 class="mat-h1">
+    <div *ngIf="messages.length">Notifications</div>
+    <div *ngIf="!messages.length">No Notifications Received</div>
+  </h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <div *ngFor="let message of messages">
+      <mat-card>
+        <mat-card-subtitle>
+          {{ message.message }}
+        </mat-card-subtitle>
+        <mat-card-actions>
+          <button mat-button (click)="deleteNotification(message.id)">Dismiss</button>          
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-grid-list>
+</div>
